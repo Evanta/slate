@@ -1,239 +1,279 @@
 ---
-title: API Reference
+title: Evanta API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+  - VERSION 1.0.0
+  - © 2019. All rights reserved.
 
 search: true
 ---
 
-# Introduction
+# Getting Started
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Evanta Registration API for Validar.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The information contained here will help you get started, and the menu on the left will show you the specifics about submitting and retrieving data from our system. The information on the right will show you the curl commands and responses.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
-
-# Authentication
-
+## Authentication
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  curl "http://api.eventbeyond.com/validar/registrations/event"
+
+  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'X_API_TENANT: your-tenant-name'
+  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'X_API_EMAIL: your.name@yourcompany.com'
 ```
 
-```javascript
-const kittn = require('kittn');
+First things first, you must have permission to access to the public API, and that permission is granted through your Validar Admin Role.
 
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Once you have successfully authenticated and can retrieve some information, you are ready to dig a little deeper. Check out the menu on the left for specifics about registrations.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>TOKENTOKENTOKEN</code> with your personal API key.
 </aside>
 
-# Kittens
+# Registrations
 
-## Get All Kittens
+A registration is made up of the following attributes:
 
-```ruby
-require 'kittn'
+Attribute | Type | Required | Notes
+:---|:---|:---:|:---
+**registrant_id** | string | ✔️ |  Your unique identifier
+**event_id** | string | ✔️ |
+**attendee_type** | string
+**first_name** | string
+**last_name** | string
+**company** | string
+**title** | string
+**email** | string | |
+**status** | string | |
+**last_modified_date_time** | string | |
+**event_ext_value_01** | string | | biz_card_hash
+**event_ext_value_02** | string | | ribbon_type_1
+**event_ext_value_01** | string | | ribbon_type_2
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get All Registrations
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+  curl "http://api.eventbeyond.com/validar/registrations/
+  event/19ALLEVAES02?since_datetime=2018-12-19_01:22:42.71&status=approved"
+
+  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'X_API_TENANT: your-tenant-name'
+  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'X_API_EMAIL: your.name@yourcompany.com'
 ```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+  "registrations": [
+      {
+      "registrant_id" : "123456",
+      "event_id" : "19ALLEVAES02",
+      "attendee_type" : "Attendee",
+      "first_name" : "Bugs",
+      "last_name" : "Bunny",
+      "company" : "Warner Bros.",
+      "title" : "Actor",
+      "email" : "bugs@warnerbros.com",
+      "status" : "Approved",
+      "last_modified_date_time" : "2018-12-19 01:22:42.71",
+      "event_ext_value_01": "EH1111wH_AT0Sup0DoCehWh_atsUPd0c",
+      "event_ext_value_02": "Governing Body",
+      "event_ext_value_03": "Speaker"
+    },
+    {
+      "registrant_id" : "789101",
+      "event_id" : "19ALLEVAES02",
+      "attendee_type" : "Sponsor",
+      "first_name" : "Daffy",
+      "last_name" : "Duck",
+      "company" : "Warner Bros.",
+      "title" : "Actor",
+      "email" : "daffy@warnerbros.com",
+      "status" : "Approved",
+      "last_modified_date_time" : "2018-12-19 01:22:42.71",
+      "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+      "event_ext_value_02": "",
+      "event_ext_value_03": "Speaker"
+    }
+
+  ]
+}
 ```
 
-This endpoint retrieves all kittens.
+To get a list of all registrations for a specific event, hit this end point:
 
-### HTTP Request
-
-`GET http://example.com/api/kittens`
+`GET /validar/registrations/event/:event_id?since_datetime=year_month_date_time&status=approved|sponsor_approved`
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parameter | Options/Format | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+since_datetime | year_month_date_time | The system should only retrieve registration records that have been last_modified after that specified date and time
+status | approved/sponsor_approved | If you provide the `status` of "approved" or "sponsor_approved" the system should only retrieve registration records with that specified status.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<aside class="success">Success Response</aside>
 
-## Get a Specific Kitten
+ A successful `GET` will return a status `200 OK` with collection of registrations.
 
-```ruby
-require 'kittn'
+<aside class="warning">Error Response</aside>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+A failed `GET` will return a status of `422 unprocessable entity` with the following potential error messages:
 
-```python
-import kittn
+ * "event_id is not valid"
+ * "event_id is required"
+ * "No registrations found for the requested EventID"
+ * "No registrations found with the requested Status"
+ * "No registrations found since the specified date and time"
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Get a Specific Registrant
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+  curl "http://api.eventbeyond.com/validar/registrations/789101"
+
+  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'X_API_TENANT: your-tenant-name'
+  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'X_API_EMAIL: your.name@yourcompany.com'
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "registrations": [
+    {
+      "registrant_id" : "789101",
+      "event_id" : "19ALLEVAES02",
+      "attendee_type" : "Sponsor",
+      "first_name" : "Daffy",
+      "last_name" : "Duck",
+      "company" : "Warner Bros.",
+      "title" : "Actor",
+      "email" : "daffy@warnerbros.com",
+      "status" : "Sponsor Approved",
+      "last_modified_date_time" : "2018-12-19 01:22:42.71",
+      "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+      "event_ext_value_02": "",
+      "event_ext_value_03": "Speaker"
+    }
+  ]
+}
 ```
 
-```javascript
-const kittn = require('kittn');
+To fetch a single registrant, hit this end point:
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+`GET /validar/registrations/:registrant_id`
+
+<aside class="success">Success Response</aside>
+
+A successful `GET` will return a status `200 OK` with one registrant.
+
+<aside class="warning">Error Response</aside>
+
+A failed `GET` will return a status of `422 unprocessable entity` with the following potential error messages:
+
+ * "registrant_id is not valid"
+ * "registrant_id is required"
+
+## Create a new registrant
+
+```shell
+  curl -X POST
+  -d '{ "registrations": [
+        {
+          "event_id" : "19ALLEVAES02",
+          "attendee_type" : "Attendee",
+          "first_name" : "Elmer",
+          "last_name" : "Fudd",
+          "company" : "Warner Bros.",
+          "title" : "Actor",
+          "email" : "elmer@warnerbros.com",
+          "status" : "Approved",
+          "last_modified_date_time" : "2018-12-19 01:22:42.71"
+        }
+      ]
+    }'
+
+  "http://api.eventbeyond.com/validar/registrations/789101"
+  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'X_API_TENANT: your-tenant-name'
+  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'X_API_EMAIL: your.name@yourcompany.com'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "registrations": [
+    {
+      "registrant_id" : "121314",
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+To create a registrant hit this end point:
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+`POST /validar/registrations`
 
-### HTTP Request
+The event_id and email fields are required and must be unique.
 
-`GET http://example.com/kittens/<ID>`
+<aside class="success">Success Response</aside>
 
-### URL Parameters
+A successful `POST` will return status `201 Created`
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+<aside class="warning">Error Response</aside>
 
-## Delete a Specific Kitten
+A failed `CREATE` will return a status of `422 unprocessable entity` with the following potential error messages:
 
-```ruby
-require 'kittn'
+  * "event_id is not valid"
+  * "event_id is required"
+  * "email is required"
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Update an already existing registrant
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+  curl -X PUT
+  -d '{ "registrations": [
+      {
+        "registrant_id" : "789101",
+        "attendee_type" : "Sponsor",
+        "status" : "Sponsor Approved",
+        "last_modified_date_time" : "2018-12-19 01:22:42.71",
+        "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+        "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+      }
+    ]
+  }'
+
+  "http://api.eventbeyond.com/validar/registrations/789101"
+  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'X_API_TENANT: your-tenant-name'
+  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'X_API_EMAIL: your.name@yourcompany.com'
 ```
 
-```javascript
-const kittn = require('kittn');
+To update an already existing registrant, hit this end point:
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+`PUT  /validar/registrations/:registrant_id`
 
-> The above command returns JSON structured like this:
+<aside class="success">Success Response</aside>
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+A successful `PUT` will return a status `204 No Content`.
 
-This endpoint deletes a specific kitten.
+<aside class="warning">Error Response</aside>
 
-### HTTP Request
+A failed `PUT` will return a status of `422 unprocessable entity` with the following potential error messages:
 
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+ * "registrant_id is not valid"
+ * "registrant_id is required"
