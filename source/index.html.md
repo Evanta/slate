@@ -21,7 +21,7 @@ The information contained here will help you get started, and the menu on the le
 > To authorize, use this code:
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/event"
+  curl "http://api.eventbeyond.com/validar/registrations/event/EVENTCODE"
 
   -H 'Authorization: Token token="TOKENTOKENTOKEN"'
   -H 'X_API_TENANT: evantaconnect'
@@ -34,7 +34,7 @@ First things first, you must have permission to access to the public API, and th
 Once you have successfully authenticated and can retrieve some information, you are ready to dig a little deeper. Check out the menu on the left for specifics about registrations.
 
 <aside class="notice">
-You must replace <code>TOKENTOKENTOKEN</code> with your personal API key.
+You must replace <code>TOKENTOKENTOKEN</code> with your personal API key and <code>EVENTCODE</code> with the event code you would like to initialize.
 </aside>
 
 # Registrations
@@ -91,7 +91,7 @@ Attribute | Type | Required | Notes
       "last_modified_date_time" : "2018-12-19 01:22:42",
       "event_ext_value_01": "EH1111wH_AT0Sup0DoCehWh_atsUPd0c",
       "event_ext_value_02": "Governing Body",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_03": "Speaker",
     },
     {
       "id" : "789101",
@@ -106,7 +106,7 @@ Attribute | Type | Required | Notes
       "last_modified_date_time" : "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_ext_value_02": "",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_03": "Speaker",
     }
 
   ]
@@ -163,7 +163,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
       "last_modified_date_time" : "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_ext_value_02": "",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_03": "Speaker",
     }
   ]
 }
@@ -200,10 +200,10 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
           "status" : "Approved",
           "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_ext_value_02": "",
-          "event_ext_value_03": "Speaker"
+          "event_ext_value_03": "Speaker",
           "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+          "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "is_attended" : "true",
         }
       ]
@@ -255,7 +255,7 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
       {
         "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "is_attended" : "true",
       }
     ]
