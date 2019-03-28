@@ -18,9 +18,9 @@ You're going to need:
 
 ### Getting Set Up
 
-1. `git clone git@github.com:Evanta/slate.git`
-2. `cd slate`
-3. Initialize and start Slate. You can either do this locally, or with Vagrant:
+1. `git clone git@github.com:Evanta/validar-api-docs.git`
+2. `cd validar-api-docs`
+3. Initialize and start the project. You can either do this locally, or with Vagrant:
 
 ```shell
 # either run this to run locally
@@ -33,6 +33,11 @@ vagrant up
 
 You can now see the docs at http://localhost:4567. Whoa! That was fast!
 
+Weird open ssl errors?
+```
+brew install openssl
+rvm reinstall ruby-<INSERT RUBY VERSION HERE> --with-openssl-dir=`brew --prefix openssl`
+```
 
 ### Note on JavaScript Runtime
 
