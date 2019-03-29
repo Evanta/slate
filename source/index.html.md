@@ -183,10 +183,10 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
           "status": "Approved",
           "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_ext_value_02": "Speaker",
-          "event_ext_value_03": ""
+          "event_ext_value_03": "",
           "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+          "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "is_attended": "true",
         }
       ]
@@ -238,7 +238,7 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
       {
         "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "is_attended": "true",
       }
     ]
