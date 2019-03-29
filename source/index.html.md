@@ -29,7 +29,7 @@ First things first, you must have permission to access to the public API, and th
 Once you have successfully authenticated and can retrieve some information, you are ready to dig a little deeper. Check out the menu on the left for specifics about registrations.
 
 <aside class="notice">
-  You must replace TOKEN with your personal API key and EVENT_CODE with the event code you are after.
+  You must replace <code>TOKEN</code> with your personal API key and <code>EVENT_CODE</code> with the event code you are after.
 </aside>
 
 # Registrations
@@ -48,9 +48,9 @@ Attribute | Type | Required | Notes
 **email** | string | |
 **status** | string | | "Approved" or "Sponsor Approved"
 **last_modified_date_time** | datetime | |
-**event_hub_link**  | string | |
-**event_hub_pk_pass_link** | string | |
-**event_hub_qr_code_link** | string | |
+**event_hub_link**  | string | | Validar field
+**event_hub_pk_pass_link** | string | | Validar field
+**event_hub_qr_code_link** | string | | Validar field
 **event_ext_value_01** | string | | Evanta QR Code value
 **event_ext_value_02** | string | | Ribbon value: "Speaker"
 **event_ext_value_03** | string | | Ribbon value: "Governing Body" or "Chair"
@@ -61,7 +61,7 @@ Attribute | Type | Required | Notes
 
 ```shell
   curl "http://api.eventbeyond.com/validar/registrations/
-  event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'" -H 'Authorization: Token token="TOKENTOKENTOKEN"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, */*; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
+  event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
 
@@ -104,13 +104,13 @@ Attribute | Type | Required | Notes
 
 To get a list of all registrations for a specific event, hit this end point:
 
-`GET /validar/registrations/event/<EVENT_CODE>?since_datetime=year_month_date_time`
+`GET /validar/registrations/event/<EVENT_CODE>?since_datetime=<year_month_date_time>`
 
 ### Query Parameters
 
 Parameter | Options/Format | Description
 --------- | ------- | -----------
-since_datetime | year_month_date_time | The system should only retrieve registration records that have been last_modified after that specified date and time.
+since_datetime | year_month_date_time | The system should only retrieve registration records that have been last_modified after that specified date and time. Actual expected format is: "2019-03-30 01:22:42" and expected to be in UTC w/ 24-hr time.
 
 <aside class="success">Success Response</aside>
 
@@ -123,15 +123,10 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
  * "Event not found"
  * "No registrations found"
 
-## Get a Specific Registrant - NOT YET BUILT
+## NOT YET BUILT - Get a Specific Registrant - NOT YET BUILT
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/<REGISTRATION_ID>"
-
-  -H 'Authorization: Token token="<TOKEN>"'
-  -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, /; q=0.01'
-  -H 'X_API_EMAIL: validar.api.user@evanta.com'
+  curl "http://api.eventbeyond.com/validar/registrations/<REGISTRATION_ID>" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
 
@@ -139,19 +134,19 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 {
   "registrations": [
     {
-      "id" : "789101",
-      "event_code" : "19ALLEVAES02",
-      "attendee_type" : "Sponsor",
-      "first_name" : "Daffy",
-      "last_name" : "Duck",
-      "title" : "Actor",
-      "organization_name" : "Warner Bros.",
-      "email" : "daffy@warnerbros.com",
-      "status" : "Sponsor Approved",
-      "last_modified_date_time" : "2018-12-19 01:22:42",
+      "id": "789101",
+      "event_code": "19ALLEVAES02",
+      "attendee_type": "Attendee",
+      "first_name": "Daffy",
+      "last_name": "Duck",
+      "title": "Actor",
+      "organization_name": "Warner Bros.",
+      "email": "daffy@warnerbros.com",
+      "status": "Approved",
+      "last_modified_date_time": "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_ext_value_02": "Speaker",
-      "event_ext_value_03": ""
+      "event_ext_value_03": "Chair"
     }
   ]
 }
@@ -159,7 +154,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 
 To fetch a single registrant, hit this end point:
 
-`GET /validar/registrations/:id`
+`GET /validar/registrations/<REGISTRATION_ID>`
 
 <aside class="success">Success Response</aside>
 
@@ -172,35 +167,35 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
  * "Event not found"
  * "No registrations found"
 
-## Create a new registrant
+## NOT YET BUILT - Create a new registrant - NOT YET BUILT
 
 ```shell
   curl -X POST
   -d '{ "registrations": [
         {
-          "event_code" : "19ALLEVAES02",
+          "event_code": "19ALLEVAES02",
           "attendee_type": "Attendee",
-          "first_name" : "Elmer",
-          "last_name" : "Fudd",
-          "title" : "Actor",
-          "organization_name" : "Warner Bros.",
-          "email" : "elmer@warnerbros.com",
-          "status" : "Approved",
+          "first_name": "Elmer",
+          "last_name": "Fudd",
+          "title": "Actor",
+          "organization_name": "Warner Bros.",
+          "email": "elmer@warnerbros.com",
+          "status": "Approved",
           "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "event_ext_value_02": "",
-          "event_ext_value_03": "Speaker"
+          "event_ext_value_02": "Speaker",
+          "event_ext_value_03": ""
           "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
-          "is_attended" : "true",
+          "is_attended": "true",
         }
       ]
     }'
 
   "http://api.eventbeyond.com/validar/registrations/789101"
-  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'Accept: application/json, text/javascript, /; q=0.01'
   -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 
@@ -210,7 +205,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 {
   "registrations": [
     {
-      "id" : "121314",
+      "id": "121314",
 
     }
   ]
@@ -244,15 +239,15 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
         "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
         "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
-        "is_attended" : "true",
+        "is_attended": "true",
       }
     ]
   }'
 
   "http://api.eventbeyond.com/validar/registrations/789101"
-  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'Accept: application/json, text/javascript, /; q=0.01'
   -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
@@ -261,7 +256,7 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 {
   "registrations": [
     {
-      "message" : "Registration updated",
+      "message": "Registration updated",
     }
   ]
 }
@@ -269,7 +264,7 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 
 To update an already existing registrant, hit this end point:
 
-`PUT  /validar/registrations/:id`
+`PUT  /validar/registrations/<REGISTRATION_ID>`
 
 <aside class="success">Success Response</aside>
 
