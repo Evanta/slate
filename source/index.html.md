@@ -21,12 +21,7 @@ The information contained here will help you get started, and the menu on the le
 > To authorize, use this code:
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/event"
-
-  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
-  -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, */*; q=0.01'
-  -H 'X_API_EMAIL: validar.api.user@evanta.com'
+curl 'https://api.eventbeyond.com/validar/registrations/event/<EVENT_CODE>' -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 
 First things first, you must have permission to access to the public API, and that permission is granted through your Validar Admin Role.
@@ -34,7 +29,7 @@ First things first, you must have permission to access to the public API, and th
 Once you have successfully authenticated and can retrieve some information, you are ready to dig a little deeper. Check out the menu on the left for specifics about registrations.
 
 <aside class="notice">
-You must replace <code>TOKENTOKENTOKEN</code> with your personal API key.
+  You must replace TOKEN with your personal API key and EVENT_CODE with the event code you are after.
 </aside>
 
 # Registrations
@@ -51,14 +46,14 @@ Attribute | Type | Required | Notes
 **title** | string | |
 **organization_name** | string | |
 **email** | string | |
-**status** | string | |
+**status** | string | | "Approved" or "Sponsor Approved"
 **last_modified_date_time** | datetime | |
 **event_hub_link**  | string | |
 **event_hub_pk_pass_link** | string | |
 **event_hub_qr_code_link** | string | |
-**event_ext_value_01** | string | | biz_card_hash
-**event_ext_value_02** | string | | ribbon_type_speaker
-**event_ext_value_03** | string | | ribbon_type_governing_body
+**event_ext_value_01** | string | | Evanta QR Code value
+**event_ext_value_02** | string | | Ribbon value: "Speaker"
+**event_ext_value_03** | string | | Ribbon value: "Governing Body" or "Chair"
 **is_attended** | boolean | |
 
 
@@ -66,12 +61,7 @@ Attribute | Type | Required | Notes
 
 ```shell
   curl "http://api.eventbeyond.com/validar/registrations/
-  event/19ALLEVAES02?since_datetime='2018-12-19 01:22:42'"
-
-  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
-  -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, */*; q=0.01'
-  -H 'X_API_EMAIL: validar.api.user@evanta.com'
+  event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'" -H 'Authorization: Token token="TOKENTOKENTOKEN"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, */*; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
 
@@ -79,50 +69,48 @@ Attribute | Type | Required | Notes
 {
   "registrations": [
       {
-      "id" : "123456",
-      "event_code" : "19ALLEVAES02",
-      "attendee_type" : "Attendee",
-      "first_name" : "Bugs",
-      "last_name" : "Bunny",
-      "title" : "Actor",
-      "organization_name" : "Warner Bros.",
-      "email" : "bugs@warnerbros.com",
-      "status" : "Approved",
-      "last_modified_date_time" : "2018-12-19 01:22:42",
+      "id": "123456",
+      "event_code": "19ALLEVAES02",
+      "attendee_type": "Attendee",
+      "first_name": "Bugs",
+      "last_name": "Bunny",
+      "title": "Actor",
+      "organization_name": "Warner Bros.",
+      "email": "bugs@warnerbros.com",
+      "status": "Approved",
+      "last_modified_date_time": "2018-12-19 01:22:42",
       "event_ext_value_01": "EH1111wH_AT0Sup0DoCehWh_atsUPd0c",
-      "event_ext_value_02": "Governing Body",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_02": "Speaker",
+      "event_ext_value_03": "Governing Body"
     },
     {
-      "id" : "789101",
-      "event_code" : "19ALLEVAES02",
-      "attendee_type" : "Sponsor",
-      "first_name" : "Daffy",
-      "last_name" : "Duck",
-      "title" : "Actor",
-      "organization_name" : "Warner Bros.",
-      "email" : "daffy@warnerbros.com",
-      "status" : "Sponsor Approved",
-      "last_modified_date_time" : "2018-12-19 01:22:42",
+      "id": "789101",
+      "event_code": "19ALLEVAES02",
+      "attendee_type": "Sponsor",
+      "first_name": "Daffy",
+      "last_name": "Duck",
+      "title": "Actor",
+      "organization_name": "Warner Bros.",
+      "email": "daffy@warnerbros.com",
+      "status": "Sponsor Approved",
+      "last_modified_date_time": "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-      "event_ext_value_02": "",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_02": "Speaker",
+      "event_ext_value_03": ""
     }
-
   ]
 }
 ```
 
 To get a list of all registrations for a specific event, hit this end point:
 
-`GET /validar/registrations/event/:event_code?since_datetime=year_month_date_time&status=attendee|sponsor`
+`GET /validar/registrations/event/<EVENT_CODE>?since_datetime=year_month_date_time`
 
 ### Query Parameters
 
 Parameter | Options/Format | Description
 --------- | ------- | -----------
 since_datetime | year_month_date_time | The system should only retrieve registration records that have been last_modified after that specified date and time.
-status | attendee/sponsor | If you provide the `status` of "attendee" or "sponsor" the system should only retrieve registration records with a status of "Approved" or "Sponsor Approved". If a status is not specified, the registrations will include both statuses.
 
 <aside class="success">Success Response</aside>
 
@@ -135,14 +123,14 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
  * "Event not found"
  * "No registrations found"
 
-## Get a Specific Registrant
+## Get a Specific Registrant - NOT YET BUILT
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/789101"
+  curl "http://api.eventbeyond.com/validar/registrations/<REGISTRATION_ID>"
 
-  -H 'Authorization: Token token="TOKENTOKENTOKEN"'
+  -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, */*; q=0.01'
+  -H 'Accept: application/json, text/javascript, /; q=0.01'
   -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
@@ -162,8 +150,8 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
       "status" : "Sponsor Approved",
       "last_modified_date_time" : "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-      "event_ext_value_02": "",
-      "event_ext_value_03": "Speaker"
+      "event_ext_value_02": "Speaker",
+      "event_ext_value_03": ""
     }
   ]
 }
