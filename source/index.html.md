@@ -233,21 +233,21 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 ## Update an already existing registrant
 
 ```shell
-  curl -X PUT
-  -d '{
-	      "registration": {
-          "is_attended": true,
-          "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
-        }
-  }'
+curl -X PUT
+-d '{
+  "registration": {
+    "is_attended": true,
+    "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+  }
+}'
 
-  "http://api.eventbeyond.com/validar/registrations/789101"
-  -H 'Authorization: Token token="<TOKEN>"'
-  -H 'X_API_TENANT: evantaconnect'
-  -H 'Accept: application/json, text/javascript, /; q=0.01'
-  -H 'X_API_EMAIL: validar.api.user@evanta.com'
+"http://api.eventbeyond.com/validar/registrations/789101"
+-H 'Authorization: Token token="<TOKEN>"'
+-H 'X_API_TENANT: evantaconnect'
+-H 'Accept: application/json, text/javascript, /; q=0.01'
+-H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
 
