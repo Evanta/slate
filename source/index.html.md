@@ -234,14 +234,13 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 
 ```shell
   curl -X PUT
-  -d '{ "registrations": [
-      {
-        "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-        "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-        "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-        "is_attended": "true",
-      }
-    ]
+  -d '{
+	      "registration": {
+          "is_attended": true,
+          "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+          "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+          "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+        }
   }'
 
   "http://api.eventbeyond.com/validar/registrations/789101"
