@@ -45,7 +45,7 @@ Attribute | Type | Required | Notes
 ---:|:---:|:---:|:---
 **id** | integer | ✔️ |  Your unique identifier
 **event_code** | string | ✔️ |
-**attendee_type** | string | "Attendee" or "Sponsor" |
+**attendee_type** | string | | "Attendee" or "Sponsor"
 **first_name** | string | |
 **last_name** | string | |
 **title** | string | |
