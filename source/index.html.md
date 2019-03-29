@@ -39,7 +39,7 @@ A registration is made up of the following attributes:
 Attribute | Type | Required | Notes
 ---:|:---:|:---:|:---
 **id** | integer | ✔️ |  Your unique identifier
-**event_code** | string | ✔️ |
+**event_code** | string | ✔️ | Evanta event unique identifier
 **attendee_type** | string | | "Attendee" or "Sponsor"
 **first_name** | string | |
 **last_name** | string | |
