@@ -123,7 +123,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
  * "Event not found"
  * "No registrations found"
 
-## NOT YET BUILT - Get a Specific Registrant - NOT YET BUILT
+## Get a Specific Registrant
 
 ```shell
   curl "http://api.eventbeyond.com/validar/registrations/<REGISTRATION_ID>" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
@@ -167,7 +167,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
  * "Event not found"
  * "No registrations found"
 
-## NOT YET BUILT - Create a new registrant - NOT YET BUILT
+## Create a new registrant
 
 ```shell
   curl -X POST
