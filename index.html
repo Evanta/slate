@@ -1,0 +1,603 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Evanta API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#registrations" class="toc-h1 toc-link" data-title="Registrations">Registrations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-registrations" class="toc-h2 toc-link" data-title="Get All Registrations">Get All Registrations</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-registrant" class="toc-h2 toc-link" data-title="Get a Specific Registrant">Get a Specific Registrant</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-registrant" class="toc-h2 toc-link" data-title="Create a new registrant">Create a new registrant</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-already-existing-registrant" class="toc-h2 toc-link" data-title="Update an already existing registrant">Update an already existing registrant</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li>VERSION 1.0.0</li>
+            <li>© 2019. All rights reserved.</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='getting-started'>Getting Started</h1>
+<p>Welcome to the Evanta Registration API for Validar.</p>
+
+<p>The information contained here will help you get started, and the menu on the left will show you the specifics about submitting and retrieving data from our system. The information on the right will show you the curl commands and responses.</p>
+<h2 id='authentication'>Authentication</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.eventbeyond.com/validar/registrations/event/&lt;EVENT_CODE&gt;'</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+</code></pre>
+<p>First things first, you must have permission to access to the public API, and that permission is granted through your Validar Admin Role.</p>
+
+<p>Once you have successfully authenticated and can retrieve some information, you are ready to dig a little deeper. Check out the menu on the left for specifics about registrations.</p>
+
+<aside class="notice">
+  You must replace <code>TOKEN</code> with your personal API key and <code>EVENT_CODE</code> with the event code you are after.
+</aside>
+<h1 id='registrations'>Registrations</h1>
+<p>A registration is made up of the following attributes:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: right">Attribute</th>
+<th style="text-align: center">Type</th>
+<th style="text-align: center">Required</th>
+<th style="text-align: left">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right"><strong>id</strong></td>
+<td style="text-align: center">integer</td>
+<td style="text-align: center">✔️</td>
+<td style="text-align: left">Your unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_code</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center">✔️</td>
+<td style="text-align: left">Evanta event unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>attendee_type</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">&quot;Attendee&quot; or &quot;Sponsor&quot;</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>first_name</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>last_name</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>title</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>organization_name</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>email</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>status</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">&quot;Approved&quot; or &quot;Sponsor Approved&quot;</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>last_modified_date_time</strong></td>
+<td style="text-align: center">datetime</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_hub_link</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Validar field</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_hub_pk_pass_link</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Validar field</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_hub_qr_code_link</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Validar field</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_ext_value_01</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Evanta QR Code value</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_ext_value_02</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Ribbon value: &quot;Speaker&quot;</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>event_ext_value_03</strong></td>
+<td style="text-align: center">string</td>
+<td style="text-align: center"></td>
+<td style="text-align: left">Ribbon value: &quot;Governing Body&quot; or &quot;Chair&quot;</td>
+</tr>
+<tr>
+<td style="text-align: right"><strong>is_attended</strong></td>
+<td style="text-align: center">boolean</td>
+<td style="text-align: center"></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+<h2 id='get-all-registrations'>Get All Registrations</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/
+  event/&lt;EVENT_CODE&gt;?since_datetime='2018-12-19 01:22:42'"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bugs"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bunny"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bugs@warnerbros.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EH1111wH_AT0Sup0DoCehWh_atsUPd0c"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Governing Body"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sponsor"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daffy@warnerbros.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sponsor Approved"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To get a list of all registrations for a specific event, hit this end point:</p>
+
+<p><code>GET /validar/registrations/event/&lt;EVENT_CODE&gt;?since_datetime=&lt;year_month_date_time&gt;</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Options/Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>since_datetime</td>
+<td>year_month_date_time</td>
+<td>The system should only retrieve registration records that have been last_modified after that specified date and time. Actual expected format is: &quot;2019-03-30 01:22:42&quot; and expected to be in UTC w/ 24-hr time.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">Success Response</aside>
+
+<p>A successful <code>GET</code> will return a status <code>200 OK</code> with collection of registrations.</p>
+
+<aside class="warning">Error Response</aside>
+
+<p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
+
+<ul>
+<li>&quot;Event not found&quot;</li>
+<li>&quot;No registrations found&quot;</li>
+</ul>
+<h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daffy@warnerbros.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chair"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To fetch a single registrant, hit this end point:</p>
+
+<p><code>GET /validar/registrations/&lt;REGISTRATION_ID&gt;</code></p>
+
+<aside class="success">Success Response</aside>
+
+<p>A successful <code>GET</code> will return a status <code>200 OK</code> with one registrant.</p>
+
+<aside class="warning">Error Response</aside>
+
+<p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
+
+<ul>
+<li>&quot;Event not found&quot;</li>
+<li>&quot;No registrations found&quot;</li>
+</ul>
+<h2 id='create-a-new-registrant'>Create a new registrant</h2><pre class="highlight shell tab-shell"><code>  curl -X POST
+  -d <span class="s1">'{ "registrations": [
+        {
+          "event_code": "19ALLEVAES02",
+          "attendee_type": "Attendee",
+          "first_name": "Elmer",
+          "last_name": "Fudd",
+          "title": "Actor",
+          "organization_name": "Warner Bros.",
+          "email": "elmer@warnerbros.com",
+          "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+          "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+          "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+          "is_attended": "true",
+        }
+      ]
+    }'</span>
+
+  <span class="s2">"http://api.eventbeyond.com/validar/registrations/789101"</span>
+  -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span>
+  -H <span class="s1">'X_API_TENANT: evantaconnect'</span>
+  -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
+  -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121314"</span><span class="p">,</span><span class="w">
+
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To create a registrant hit this end point:</p>
+
+<p><code>POST /validar/registrations</code></p>
+
+<p>The event_code and email fields are required and must be unique.</p>
+
+<aside class="success">Success Response</aside>
+
+<p>A successful <code>POST</code> will return status <code>201 Created</code></p>
+
+<aside class="warning">Error Response</aside>
+
+<p>A failed <code>CREATE</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
+
+<ul>
+<li>&quot;event_code is not valid&quot;</li>
+<li>&quot;event_code is required&quot;</li>
+<li>&quot;email is required&quot;</li>
+</ul>
+<h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
+-d <span class="s1">'{
+  "registration": {
+    "is_attended": true,
+    "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+  }
+}'</span>
+
+<span class="s2">"http://api.eventbeyond.com/validar/registrations/789101"</span>
+-H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span>
+-H <span class="s1">'X_API_TENANT: evantaconnect'</span>
+-H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
+-H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration updated"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>To update an already existing registrant, hit this end point:</p>
+
+<p><code>PUT  /validar/registrations/&lt;REGISTRATION_ID&gt;</code></p>
+
+<aside class="success">Success Response</aside>
+
+<p>A successful <code>PUT</code> will return a status <code>200 OK</code>.</p>
+
+<aside class="warning">Error Response</aside>
+
+<p>A failed <code>PUT</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
+
+<ul>
+<li>&quot;No registration found&quot;</li>
+<li>&quot;No event user found&quot;</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
