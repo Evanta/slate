@@ -461,20 +461,20 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daffy@warnerbros.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chair"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daffy@warnerbros.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chair"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>To fetch a single registrant, hit this end point:</p>
@@ -494,8 +494,7 @@
 <li>&quot;No registrations found&quot;</li>
 </ul>
 <h2 id='create-a-new-registrant'>Create a new registrant</h2><pre class="highlight shell tab-shell"><code>  curl -X POST
-  -d <span class="s1">'{ "registrations": [
-        {
+  -d <span class="s1">'{ "registration": {
           "event_code": "19ALLEVAES02",
           "attendee_type": "Attendee",
           "first_name": "Elmer",
@@ -508,7 +507,6 @@
           "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "is_attended": "true",
         }
-      ]
     }'</span>
 
   <span class="s2">"http://api.eventbeyond.com/validar/registrations/789101"</span>
@@ -521,12 +519,21 @@
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121314"</span><span class="p">,</span><span class="w">
-
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8314101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elmer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fudd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Actor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organization_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warner Bros."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"elmer@warnerbros.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>To create a registrant hit this end point:</p>
