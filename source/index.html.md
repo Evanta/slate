@@ -133,20 +133,20 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 ```json
 {
   "registration": {
-      "id": "789101",
-      "event_code": "19ALLEVAES02",
-      "attendee_type": "Attendee",
-      "first_name": "Daffy",
-      "last_name": "Duck",
-      "title": "Actor",
-      "organization_name": "Warner Bros.",
-      "email": "daffy@warnerbros.com",
-      "status": "Approved",
-      "last_modified_date_time": "2018-12-19 01:22:42",
-      "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-      "event_ext_value_02": "Speaker",
-      "event_ext_value_03": "Chair"
-    }
+    "id": "789101",
+    "event_code": "19ALLEVAES02",
+    "attendee_type": "Attendee",
+    "first_name": "Daffy",
+    "last_name": "Duck",
+    "title": "Actor",
+    "organization_name": "Warner Bros.",
+    "email": "daffy@warnerbros.com",
+    "status": "Approved",
+    "last_modified_date_time": "2018-12-19 01:22:42",
+    "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_ext_value_02": "Speaker",
+    "event_ext_value_03": "Chair"
+  }
 }
 ```
 
@@ -169,8 +169,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 
 ```shell
   curl -X POST
-  -d '{ "registrations": [
-        {
+  -d '{ "registration": {
           "event_code": "19ALLEVAES02",
           "attendee_type": "Attendee",
           "first_name": "Elmer",
@@ -183,7 +182,6 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
           "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "is_attended": "true",
         }
-      ]
     }'
 
   "http://api.eventbeyond.com/validar/registrations/789101"
@@ -197,12 +195,21 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 
 ```json
 {
-  "registrations": [
-    {
-      "id": "121314",
-
-    }
-  ]
+  "registration": {
+    "id": "8314101",
+    "event_code": "19ALLEVAES02",
+    "attendee_type": "Attendee",
+    "first_name": "Elmer",
+    "last_name": "Fudd",
+    "title": "Actor",
+    "organization_name": "Warner Bros.",
+    "email": "elmer@warnerbros.com",
+    "status": "Approved",
+    "last_modified_date_time": "2018-12-19 01:22:42",
+    "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_ext_value_02": null,
+    "event_ext_value_03": null
+  }
 }
 ```
 
