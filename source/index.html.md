@@ -132,8 +132,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 
 ```json
 {
-  "registrations": [
-    {
+  "registration": {
       "id": "789101",
       "event_code": "19ALLEVAES02",
       "attendee_type": "Attendee",
@@ -148,7 +147,6 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
       "event_ext_value_02": "Speaker",
       "event_ext_value_03": "Chair"
     }
-  ]
 }
 ```
 
