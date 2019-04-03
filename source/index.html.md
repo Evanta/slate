@@ -254,11 +254,7 @@ curl -X PUT
 
 ```json
 {
-  "registrations": [
-    {
-      "message": "Registration updated",
-    }
-  ]
+  "message": "Registration updated",
 }
 ```
 
