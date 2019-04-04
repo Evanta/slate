@@ -473,7 +473,10 @@
     </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chair"</span><span class="w">
+    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chair"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_pk_pass_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_qr_code_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -532,7 +535,10 @@
     </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_pk_pass_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_hub_qr_code_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -544,7 +550,7 @@
 
 <aside class="success">Success Response</aside>
 
-<p>A successful <code>POST</code> will return status <code>201 Created</code></p>
+<p>A successful <code>POST</code> will return status <code>201 Created</code>. The new registrant&#39;s <code>last_modified_date_time</code> will be set to the server&#39;s datetime.</p>
 
 <aside class="warning">Error Response</aside>
 
@@ -584,7 +590,7 @@
 
 <aside class="success">Success Response</aside>
 
-<p>A successful <code>PUT</code> will return a status <code>200 OK</code>.</p>
+<p>A successful <code>PUT</code> will return a status <code>200 OK</code>. The updated registrant&#39;s <code>last_modified_date_time</code> will be set to the current server date and time. </p>
 
 <aside class="warning">Error Response</aside>
 
