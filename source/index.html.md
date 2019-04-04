@@ -145,7 +145,10 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
     "last_modified_date_time": "2018-12-19 01:22:42",
     "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
     "event_ext_value_02": "Speaker",
-    "event_ext_value_03": "Chair"
+    "event_ext_value_03": "Chair",
+    "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
   }
 }
 ```
@@ -208,7 +211,10 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
     "last_modified_date_time": "2018-12-19 01:22:42",
     "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
     "event_ext_value_02": null,
-    "event_ext_value_03": null
+    "event_ext_value_03": null,
+    "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
   }
 }
 ```
@@ -221,7 +227,7 @@ The event_code and email fields are required and must be unique.
 
 <aside class="success">Success Response</aside>
 
-A successful `POST` will return status `201 Created`
+A successful `POST` will return status `201 Created`. The new registrant's `last_modified_date_time` will be set to the server's datetime.
 
 <aside class="warning">Error Response</aside>
 
@@ -264,7 +270,7 @@ To update an already existing registrant, hit this end point:
 
 <aside class="success">Success Response</aside>
 
-A successful `PUT` will return a status `200 OK`.
+A successful `PUT` will return a status `200 OK`. The updated registrant's `last_modified_date_time` will be set to the current server date and time. 
 
 <aside class="warning">Error Response</aside>
 
