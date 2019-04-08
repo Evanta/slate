@@ -84,7 +84,8 @@ Attribute | Type | Required | Notes
       "event_ext_value_03": "Governing Body",
       "event_hub_link": "www.hub.com/Zfg3141_rRe_deTHhhhPicab1111Eppx",
       "event_hub_pk_pass_link": "Zfg3141_rRe_deTHhhhPicab1111Eppx",
-      "event_hub_qr_code_link": "www.hubpkpass.com/Zfg3141_rRe_deTHhhhPicab1111Eppx"
+      "event_hub_qr_code_link": "www.hubpkpass.com/Zfg3141_rRe_deTHhhhPicab1111Eppx",
+      "is_attended": true
     },
     {
       "id": "789101",
@@ -102,7 +103,8 @@ Attribute | Type | Required | Notes
       "event_ext_value_03": "",
       "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-      "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+      "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+      "is_attended": true
     }
   ]
 }
@@ -154,7 +156,8 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
     "event_ext_value_03": "Chair",
     "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
     "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "is_attended": true
   }
 }
 ```
@@ -220,7 +223,8 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
     "event_ext_value_03": null,
     "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
     "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "is_attended": true
   }
 }
 ```
@@ -249,10 +253,10 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 curl -X PUT
 -d '{
   "registration": {
-    "is_attended": true,
     "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
     "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"
+    "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
+    "is_attended": true
   }
 }'
 
