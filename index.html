@@ -576,7 +576,9 @@
 
 <p>Only the fields listed in the <code>-d</code> section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.</p>
 
-<p>Fields not sent in the request body will remain unchanged.</p>
+<p>Email matching:</p>
+
+<p>If a user is found in our system that matches the <code>email</code> parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for first_name, last_name, title, and/or organization_name may be different in this case.</p>
 <h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
 -d <span class="s1">'{
   "registration": {
