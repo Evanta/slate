@@ -252,7 +252,9 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 
 Only the fields listed in the `-d` section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.
 
-Fields not sent in the request body will remain unchanged.
+Email matching:
+
+If a user is found in our system that matches the `email` parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for first_name, last_name, title, and/or organization_name may be different in this case.
 
 ## Update an already existing registrant
 
