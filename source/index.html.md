@@ -247,6 +247,13 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
   * "event_code is required"
   * "email is required"
 
+
+<aside class="notice">Notice</aside>
+
+Only the fields listed in the `-d` section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.
+
+Fields not sent in the request body will remain unchanged.
+
 ## Update an already existing registrant
 
 ```shell
@@ -288,3 +295,10 @@ A failed `PUT` will return a status of `422 unprocessable entity` with the follo
 
   * "No registration found"
   * "No event user found"
+
+
+  <aside class="notice">Notice</aside>
+
+  Only the fields listed in the `-d` section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.
+
+  Fields not sent in the request body will remain unchanged.
