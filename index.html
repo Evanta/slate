@@ -463,9 +463,12 @@
 <aside class="warning">Error Response</aside>
 
 <p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No registrations found."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+
+<ul>
+<li>{ &quot;error&quot;: &quot;Event not found.&quot; }</li>
+<li>{ &quot;error&quot;: &quot;No registrations found.&quot; }</li>
+</ul>
+<h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
