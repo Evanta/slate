@@ -301,13 +301,13 @@
 <tr>
 <td style="text-align: right"><strong>first_name</strong></td>
 <td style="text-align: center">string</td>
-<td style="text-align: center"></td>
+<td style="text-align: center">✔️</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: right"><strong>last_name</strong></td>
 <td style="text-align: center">string</td>
-<td style="text-align: center"></td>
+<td style="text-align: center">✔️</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
@@ -325,7 +325,7 @@
 <tr>
 <td style="text-align: right"><strong>email</strong></td>
 <td style="text-align: center">string</td>
-<td style="text-align: center"></td>
+<td style="text-align: center">✔️</td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
@@ -380,6 +380,12 @@
 <td style="text-align: right"><strong>is_attended</strong></td>
 <td style="text-align: center">boolean</td>
 <td style="text-align: center"></td>
+<td style="text-align: left">true, &quot;true&quot;, or 1 for <strong>True</strong></td>
+</tr>
+<tr>
+<td style="text-align: right"></td>
+<td style="text-align: center"></td>
+<td style="text-align: center">false, &quot;false&quot;, or 0 for <strong>False</strong></td>
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
@@ -392,7 +398,7 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bugs"</span><span class="p">,</span><span class="w">
@@ -411,7 +417,7 @@
       </span><span class="s2">"is_attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789101</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sponsor"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
@@ -423,7 +429,7 @@
       </span><span class="s2">"last_modified_date_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-19 01:22:42"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_ext_value_01"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_ext_value_02"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speaker"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_ext_value_03"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_hub_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_hub_pk_pass_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_hub_qr_code_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx"</span><span class="p">,</span><span class="w">
@@ -457,19 +463,16 @@
 <aside class="warning">Error Response</aside>
 
 <p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-
-<ul>
-<li>&quot;Event not found&quot;</li>
-<li>&quot;No registrations found&quot;</li>
-</ul>
-<h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No registrations found."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789101</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
@@ -499,12 +502,7 @@
 
 <aside class="warning">Error Response</aside>
 
-<p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-
-<ul>
-<li>&quot;Event not found&quot;</li>
-<li>&quot;No registrations found&quot;</li>
-</ul>
+<p>A failed <code>GET</code> will return a status of <code>404 Not Found</code>. No additional message is given.</p>
 <h2 id='create-a-new-registrant'>Create a new registrant</h2><pre class="highlight shell tab-shell"><code>  curl -X POST
   -d <span class="s1">'{ "registration": {
           "event_code": "19ALLEVAES02",
@@ -517,7 +515,7 @@
           "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "is_attended": "true",
+          "is_attended": true,
         }
     }'</span>
 
@@ -526,13 +524,15 @@
   -H <span class="s1">'X_API_TENANT: evantaconnect'</span>
   -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
   -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
-</code></pre>
+</code></pre><h6 id='note'>Note:</h6>
+<p>If <code>attendee_type</code> is not passed in, or if an invalid <code>attendee_type</code> is sent the API will default to &quot;Attendee&quot;.</p>
+
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8314101"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8314101</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elmer"</span><span class="p">,</span><span class="w">
@@ -565,21 +565,24 @@
 <aside class="warning">Error Response</aside>
 
 <p>A failed <code>CREATE</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-
-<ul>
-<li>&quot;event_code is not valid&quot;</li>
-<li>&quot;event_code is required&quot;</li>
-<li>&quot;email is required&quot;</li>
-</ul>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration not found for event: &lt;EVENT_CODE&gt;."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last name is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <aside class="notice">Notice</aside>
 
 <p>Only the fields listed in the <code>-d</code> section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.</p>
-
-<p>Email matching:</p>
-
-<p>If a user is found in our system that matches the <code>email</code> parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for first_name, last_name, title, and/or organization_name may be different in this case.</p>
-<h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
+<h4 id='email-matching'>Email Matching:</h4>
+<p>If a user is found in our system that matches the <code>email</code> parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for <code>first_name</code>, <code>last_name</code>, <code>title</code>, and/or <code>organization_name</code> may be different than what was sent.</p>
+<h4 id='existing-registration-found'>Existing registration found:</h4>
+<p>If there is already a registration record for the <code>event_code</code> and <code>email</code> passed in a <code>422 Unprocessable Entity</code> error will be returned with the message:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
 -d <span class="s1">'{
   "registration": {
     "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
@@ -598,9 +601,7 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration updated"</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration updated"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>To update an already existing registrant, hit this end point:</p>
 
@@ -612,12 +613,13 @@
 
 <aside class="warning">Error Response</aside>
 
-<p>A failed <code>PUT</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-
-<ul>
-<li>&quot;No registration found&quot;</li>
-<li>&quot;No event user found&quot;</li>
-</ul>
+<p>A failed <code>PUT</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:
+<code>json
+{ &quot;error&quot;: &quot;Registration not found.&quot; }
+</code>
+<code>json
+{ &quot;error&quot;: &quot;Event user not found.&quot; }
+</code></p>
 
 <p><aside class="notice">Notice</aside></p>
 
