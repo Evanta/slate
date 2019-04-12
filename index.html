@@ -527,9 +527,7 @@
   -H <span class="s1">'X_API_TENANT: evantaconnect'</span>
   -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
   -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
-</code></pre><h6 id='note'>Note:</h6>
-<p>If <code>attendee_type</code> is not passed in, or if an invalid <code>attendee_type</code> is sent the API will default to &quot;Attendee&quot;.</p>
-
+</code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -559,7 +557,9 @@
 
 <p><code>POST /validar/registrations</code></p>
 
-<p>The event_code and email fields are required and must be unique.</p>
+<p>The <code>event_code</code> and <code>email</code> fields are required and must be unique. <code>first_name</code> and <code>last_name</code> are also required. <code>title</code> and <code>organization_name</code> are optional.</p>
+
+<p>If an <code>attendee_type</code> is not included in the request &quot;Attendee&quot; will be assigned.</p>
 
 <aside class="success">Success Response</aside>
 
@@ -612,11 +612,8 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-
-<ul>
-<li><code>{ &quot;message&quot;: &quot;Registration updated&quot; }</code></li>
-</ul>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration updated"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>To update an already existing registrant, hit this end point:</p>
 
 <p><code>PUT  /validar/registrations/&lt;REGISTRATION_ID&gt;</code></p>
