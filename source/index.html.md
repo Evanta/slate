@@ -130,8 +130,8 @@ since_datetime | year_month_date_time | The system should only retrieve registra
 A failed `GET` will return a status of `422 unprocessable entity` with the following potential error messages:
 
 
-* { "error": "Event not found." }
-* { "error": "No registrations found." }
+* `{ "error": "Event not found." }`
+* `{ "error": "No registrations found." }`
 
 
 ## Get a Specific Registrant
