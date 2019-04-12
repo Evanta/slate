@@ -581,9 +581,13 @@
 <aside class="notice">Notice</aside>
 
 <p>Only the fields listed in the <code>-d</code> section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.</p>
-<h4 id='email-matching'>Email Matching:</h4>
+
+<p><strong>Email Matching:</strong></p>
+
 <p>If a user is found in our system that matches the <code>email</code> parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for <code>first_name</code>, <code>last_name</code>, <code>title</code>, and/or <code>organization_name</code> may be different than what was sent.</p>
-<h4 id='existing-registration-found'>Existing registration found:</h4>
+
+<p><strong>Existing registration found:</strong></p>
+
 <p>If there is already a registration record for the <code>event_code</code> and <code>email</code> passed in a <code>422 Unprocessable Entity</code> error will be returned with the message:</p>
 
 <ul>
