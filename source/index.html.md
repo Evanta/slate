@@ -131,8 +131,8 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 
 
 * `{ "error": "Event not found." }`
-* `{ "error": "No registrations found." }`
 
+* `{ "error": "No registrations found." }`
 
 ## Get a Specific Registrant
 
@@ -246,24 +246,18 @@ A successful `POST` will return status `201 Created`. The new registrant's `last
 
 A failed `CREATE` will return a status of `422 unprocessable entity` with the following potential error messages:
 
-```json
-{ "error": "Event not found." }
-```
-```json
-{ "error": "Registration not found for event: <EVENT_CODE>." }
-```
-```json
-{ "error": "Email is required." }
-```
-```json
-{ "error": "First name is required." }
-```
-```json
-{ "error": "Last name is required." }
-```
-```json
-{ "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>." }
-```
+* `{ "error": "Event not found." }`
+
+* `{ "error": "Registration not found for event: <EVENT_CODE>." }`
+
+* `{ "error": "Email is required." }`
+
+* `{ "error": "First name is required." }`
+
+* `{ "error": "Last name is required." }`
+
+* `{ "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>." }`
+
 
 <aside class="notice">Notice</aside>
 
@@ -276,11 +270,8 @@ If a user is found in our system that matches the `email` parameter sent we will
 #### Existing registration found:
 If there is already a registration record for the `event_code` and `email` passed in a `422 Unprocessable Entity` error will be returned with the message:
 
-```json
-{
-  "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>."
-}
-```
+* `{ "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>." }`
+
 
 
 ## Update an already existing registrant
@@ -304,9 +295,7 @@ curl -X PUT
 ```
 > The above command returns JSON structured like this:
 
-```json
-{ "message": "Registration updated" }
-```
+* `{ "message": "Registration updated" }`
 
 To update an already existing registrant, hit this end point:
 
@@ -319,12 +308,11 @@ A successful `PUT` will return a status `200 OK`. The updated registrant's `last
 <aside class="warning">Error Response</aside>
 
 A failed `PUT` will return a status of `422 unprocessable entity` with the following potential error messages:
-```json
-{ "error": "Registration not found." }
-```
-```json
-{ "error": "Event user not found." }
-```
+
+* `{ "error": "Registration not found." }`
+
+* `{ "error": "Event user not found." }`
+
 
   <aside class="notice">Notice</aside>
 
