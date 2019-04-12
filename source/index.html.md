@@ -263,16 +263,15 @@ A failed `CREATE` will return a status of `422 unprocessable entity` with the fo
 
 Only the fields listed in the `-d` section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.
 
-#### Email Matching:
+**Email Matching:**
 
 If a user is found in our system that matches the `email` parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for `first_name`, `last_name`, `title`, and/or `organization_name` may be different than what was sent.
 
-#### Existing registration found:
+**Existing registration found:**
+
 If there is already a registration record for the `event_code` and `email` passed in a `422 Unprocessable Entity` error will be returned with the message:
 
 * `{ "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>." }`
-
-
 
 ## Update an already existing registrant
 
@@ -312,7 +311,6 @@ A failed `PUT` will return a status of `422 unprocessable entity` with the follo
 * `{ "error": "Registration not found." }`
 
 * `{ "error": "Event user not found." }`
-
 
   <aside class="notice">Notice</aside>
 
