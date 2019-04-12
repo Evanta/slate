@@ -465,8 +465,8 @@
 <p>A failed <code>GET</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
 
 <ul>
-<li><code>{ &quot;error&quot;: &quot;Event not found.&quot; }</code></li>
-<li><code>{ &quot;error&quot;: &quot;No registrations found.&quot; }</code></li>
+<li><p><code>{ &quot;error&quot;: &quot;Event not found.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;No registrations found.&quot; }</code></p></li>
 </ul>
 <h2 id='get-a-specific-registrant'>Get a Specific Registrant</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/&lt;REGISTRATION_ID&gt;"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
 </code></pre>
@@ -568,13 +568,16 @@
 <aside class="warning">Error Response</aside>
 
 <p>A failed <code>CREATE</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration not found for event: &lt;EVENT_CODE&gt;."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last name is required."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;."</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<ul>
+<li><p><code>{ &quot;error&quot;: &quot;Event not found.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;Registration not found for event: &lt;EVENT_CODE&gt;.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;Email is required.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;First name is required.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;Last name is required.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;.&quot; }</code></p></li>
+</ul>
+
 <aside class="notice">Notice</aside>
 
 <p>Only the fields listed in the <code>-d</code> section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.</p>
@@ -582,10 +585,11 @@
 <p>If a user is found in our system that matches the <code>email</code> parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for <code>first_name</code>, <code>last_name</code>, <code>title</code>, and/or <code>organization_name</code> may be different than what was sent.</p>
 <h4 id='existing-registration-found'>Existing registration found:</h4>
 <p>If there is already a registration record for the <code>event_code</code> and <code>email</code> passed in a <code>422 Unprocessable Entity</code> error will be returned with the message:</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
+
+<ul>
+<li><code>{ &quot;error&quot;: &quot;Registration already exists for event: &lt;EVENT_CODE&gt; and user: &lt;EMAIL&gt;.&quot; }</code></li>
+</ul>
+<h2 id='update-an-already-existing-registrant'>Update an already existing registrant</h2><pre class="highlight shell tab-shell"><code>curl -X PUT
 -d <span class="s1">'{
   "registration": {
     "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
@@ -604,8 +608,11 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration updated"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<ul>
+<li><code>{ &quot;message&quot;: &quot;Registration updated&quot; }</code></li>
+</ul>
+
 <p>To update an already existing registrant, hit this end point:</p>
 
 <p><code>PUT  /validar/registrations/&lt;REGISTRATION_ID&gt;</code></p>
@@ -616,13 +623,12 @@
 
 <aside class="warning">Error Response</aside>
 
-<p>A failed <code>PUT</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:
-<code>json
-{ &quot;error&quot;: &quot;Registration not found.&quot; }
-</code>
-<code>json
-{ &quot;error&quot;: &quot;Event user not found.&quot; }
-</code></p>
+<p>A failed <code>PUT</code> will return a status of <code>422 unprocessable entity</code> with the following potential error messages:</p>
+
+<ul>
+<li><p><code>{ &quot;error&quot;: &quot;Registration not found.&quot; }</code></p></li>
+<li><p><code>{ &quot;error&quot;: &quot;Event user not found.&quot; }</code></p></li>
+</ul>
 
 <p><aside class="notice">Notice</aside></p>
 
