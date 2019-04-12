@@ -203,9 +203,6 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
   -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 
-###### Note:
-If `attendee_type` is not passed in, or if an invalid `attendee_type` is sent the API will default to "Attendee".
-
 > The above command returns JSON structured like this:
 
 ```json
@@ -236,7 +233,9 @@ To create a registrant hit this end point:
 
 `POST /validar/registrations`
 
-The event_code and email fields are required and must be unique.
+The `event_code` and `email` fields are required and must be unique. `first_name` and `last_name` are also required. `title` and `organization_name` are optional.
+
+If an `attendee_type` is not included in the request "Attendee" will be assigned.
 
 <aside class="success">Success Response</aside>
 
@@ -294,7 +293,9 @@ curl -X PUT
 ```
 > The above command returns JSON structured like this:
 
-* `{ "message": "Registration updated" }`
+```json
+{ "message": "Registration updated" }
+```
 
 To update an already existing registrant, hit this end point:
 
