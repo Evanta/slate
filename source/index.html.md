@@ -41,11 +41,11 @@ Attribute | Type | Required | Notes
 **id** | integer | ✔️ |  Your unique identifier
 **event_code** | string | ✔️ | Evanta event unique identifier
 **attendee_type** | string | | "Attendee" or "Sponsor"
-**first_name** | string | |
-**last_name** | string | |
+**first_name** | string |✔️ |
+**last_name** | string | ✔️|
 **title** | string | |
 **organization_name** | string | |
-**email** | string | |
+**email** | string |✔️ |
 **status** | string | | "Approved" or "Sponsor Approved"
 **last_modified_date_time** | datetime | |
 **event_hub_link**  | string | | Validar field
@@ -54,7 +54,8 @@ Attribute | Type | Required | Notes
 **event_ext_value_01** | string | | Evanta QR Code value
 **event_ext_value_02** | string | | Ribbon value: "Speaker"
 **event_ext_value_03** | string | | Ribbon value: "Governing Body" or "Chair"
-**is_attended** | boolean | |
+**is_attended** | boolean | | true, "true", or 1 for **True**
+|||false, "false", or 0 for **False**
 
 
 ## Get All Registrations
@@ -69,7 +70,7 @@ Attribute | Type | Required | Notes
 {
   "registrations": [
       {
-      "id": "123456",
+      "id": 123456,
       "event_code": "19ALLEVAES02",
       "attendee_type": "Attendee",
       "first_name": "Bugs",
@@ -88,7 +89,7 @@ Attribute | Type | Required | Notes
       "is_attended": true
     },
     {
-      "id": "789101",
+      "id": 789101,
       "event_code": "19ALLEVAES02",
       "attendee_type": "Sponsor",
       "first_name": "Daffy",
@@ -100,7 +101,7 @@ Attribute | Type | Required | Notes
       "last_modified_date_time": "2018-12-19 01:22:42",
       "event_ext_value_01": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_ext_value_02": "Speaker",
-      "event_ext_value_03": "",
+      "event_ext_value_03": null,
       "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_hub_pk_pass_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
       "event_hub_qr_code_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
@@ -128,8 +129,12 @@ since_datetime | year_month_date_time | The system should only retrieve registra
 
 A failed `GET` will return a status of `422 unprocessable entity` with the following potential error messages:
 
- * "Event not found"
- * "No registrations found"
+```json
+{ "error": "Event not found." }
+```
+```json
+{ "error": "No registrations found." }
+```
 
 ## Get a Specific Registrant
 
@@ -141,7 +146,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 ```json
 {
   "registration": {
-    "id": "789101",
+    "id": 789101,
     "event_code": "19ALLEVAES02",
     "attendee_type": "Attendee",
     "first_name": "Daffy",
@@ -172,10 +177,7 @@ A successful `GET` will return a status `200 OK` with one registrant.
 
 <aside class="warning">Error Response</aside>
 
-A failed `GET` will return a status of `422 unprocessable entity` with the following potential error messages:
-
- * "Event not found"
- * "No registrations found"
+A failed `GET` will return a status of `404 Not Found`. No additional message is given.
 
 ## Create a new registrant
 
@@ -192,7 +194,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
           "event_hub_link": "www.hub.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_qr_code_link": "Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
           "event_hub_pk_pass_link": "www.hubpkpass.com/Y0uUU_rrrRe_deTHhhhPicab1111Eppx",
-          "is_attended": "true",
+          "is_attended": true,
         }
     }'
 
@@ -203,12 +205,15 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
   -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 
+###### Note:
+If `attendee_type` is not passed in, or if an invalid `attendee_type` is sent the API will default to "Attendee".
+
 > The above command returns JSON structured like this:
 
 ```json
 {
   "registration": {
-    "id": "8314101",
+    "id": 8314101,
     "event_code": "19ALLEVAES02",
     "attendee_type": "Attendee",
     "first_name": "Elmer",
@@ -243,18 +248,42 @@ A successful `POST` will return status `201 Created`. The new registrant's `last
 
 A failed `CREATE` will return a status of `422 unprocessable entity` with the following potential error messages:
 
-  * "event_code is not valid"
-  * "event_code is required"
-  * "email is required"
-
+```json
+{ "error": "Event not found." }
+```
+```json
+{ "error": "Registration not found for event: <EVENT_CODE>." }
+```
+```json
+{ "error": "Email is required." }
+```
+```json
+{ "error": "First name is required." }
+```
+```json
+{ "error": "Last name is required." }
+```
+```json
+{ "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>." }
+```
 
 <aside class="notice">Notice</aside>
 
 Only the fields listed in the `-d` section of the curl will be accepted by our API. Any other values are ignored. No error is given when an unaccepted value is received.
 
-Email matching:
+#### Email Matching:
 
-If a user is found in our system that matches the `email` parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for first_name, last_name, title, and/or organization_name may be different in this case.
+If a user is found in our system that matches the `email` parameter sent we will use our user to create the new registrant record. This means the values returned in the JSON for `first_name`, `last_name`, `title`, and/or `organization_name` may be different than what was sent.
+
+#### Existing registration found:
+If there is already a registration record for the `event_code` and `email` passed in a `422 Unprocessable Entity` error will be returned with the message:
+
+```json
+{
+  "error": "Registration already exists for event: <EVENT_CODE> and user: <EMAIL>."
+}
+```
+
 
 ## Update an already existing registrant
 
@@ -278,9 +307,7 @@ curl -X PUT
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "message": "Registration updated",
-}
+{ "message": "Registration updated" }
 ```
 
 To update an already existing registrant, hit this end point:
@@ -294,10 +321,12 @@ A successful `PUT` will return a status `200 OK`. The updated registrant's `last
 <aside class="warning">Error Response</aside>
 
 A failed `PUT` will return a status of `422 unprocessable entity` with the following potential error messages:
-
-  * "No registration found"
-  * "No event user found"
-
+```json
+{ "error": "Registration not found." }
+```
+```json
+{ "error": "Event user not found." }
+```
 
   <aside class="notice">Notice</aside>
 
