@@ -2,10 +2,11 @@
 title: Evanta API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+  - shell: cURL
+  - ruby
 
 toc_footers:
-  - VERSION 1.0.0
+  - VERSION 1.0.1
   - © 2019. All rights reserved.
 
 search: true
@@ -63,6 +64,24 @@ Attribute | Type | Required | Notes
 ```shell
   curl "http://api.eventbeyond.com/validar/registrations/
   event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
+```
+```ruby
+require 'uri'
+require 'net/http'
+
+url = URI("http://localhost:3000/validar/registrations/event/18EVAPRAPR01")
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = 'Token token="BZIpRazA3KqrQaNOMqiOJQ"'
+request["X_API_EMAIL"] = 'validar.api.user@evanta.com'
+request["X-API-Tenant"] = 'evantaconnect'
+request["cache-control"] = 'no-cache'
+request["Postman-Token"] = '2560af6d-d231-4ef5-9355-d20bfcf250fd'
+
+response = http.request(request)
+puts response.read_body
 ```
 > The above command returns JSON structured like this:
 
