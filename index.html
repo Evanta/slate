@@ -391,8 +391,11 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='get-all-registrations'>Get All Registrations</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/
-  event/&lt;EVENT_CODE&gt;?since_datetime='2018-12-19 01:22:42'"</span> -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span> -H <span class="s1">'X_API_TENANT: evantaconnect'</span> -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span> -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
+<h2 id='get-all-registrations'>Get All Registrations</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/event/&lt;EVENT_CODE&gt;?since_datetime='2018-12-19 01:22:42'"</span> 
+  -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span>
+  -H <span class="s1">'X_API_TENANT: evantaconnect'</span>
+  -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
+  -H <span class="s1">'X_API_EMAIL: validar.api.user@evanta.com'</span>
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
 
@@ -405,7 +408,6 @@
 <span class="n">request</span><span class="p">[</span><span class="s2">"X_API_EMAIL"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'validar.api.user@evanta.com'</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"X-API-Tenant"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'evantaconnect'</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"cache-control"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'no-cache'</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Postman-Token"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'2560af6d-d231-4ef5-9355-d20bfcf250fd'</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
