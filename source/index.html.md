@@ -254,9 +254,9 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
 }
 ```
 
-To create a registrant use this end point: (**Route Disabled 5/3/19**)
+_Note: this route was not needed for our Validar implementation so it has been disabled in the API. If it should be needed in the future we can easily re-enable it. The documentation has been left here as reference._
 
-Note: this route was not needed for our Validar implementation so it has been disabled in the API. If it should be needed in the future we can easily re-enable it. The documentation has been left here as reference.
+To create a registrant use this end point:
 
 `POST /validar/registrations`
 
