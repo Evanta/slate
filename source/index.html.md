@@ -93,6 +93,7 @@ puts response.read_body
       {
       "id": 123456,
       "event_code": "19ALLEVAES02",
+      "event_name": "2019 All Hands Executive Summit",
       "attendee_type": "Attendee",
       "first_name": "Bugs",
       "last_name": "Bunny",
@@ -112,6 +113,7 @@ puts response.read_body
     {
       "id": 789101,
       "event_code": "19ALLEVAES02",
+      "event_name": "2019 All Hands Executive Summit",
       "attendee_type": "Sponsor",
       "first_name": "Daffy",
       "last_name": "Duck",
@@ -167,6 +169,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
   "registration": {
     "id": 789101,
     "event_code": "19ALLEVAES02",
+    "event_name": "2019 All Hands Executive Summit",
     "attendee_type": "Attendee",
     "first_name": "Daffy",
     "last_name": "Duck",
@@ -231,6 +234,7 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
   "registration": {
     "id": 8314101,
     "event_code": "19ALLEVAES02",
+    "event_name": "2019 All Hands Executive Summit",
     "attendee_type": "Attendee",
     "first_name": "Elmer",
     "last_name": "Fudd",
