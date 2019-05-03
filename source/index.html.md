@@ -62,7 +62,7 @@ Attribute | Type | Required | Notes
 ## Get All Registrations
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'" 
+  curl "http://api.eventbeyond.com/validar/registrations/event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'"
   -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
   -H 'Accept: application/json, text/javascript, /; q=0.01'
@@ -250,7 +250,7 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
 }
 ```
 
-To create a registrant hit this end point:
+To create a registrant use this end point: (**Route Disabled 5/3/19**)
 
 `POST /validar/registrations`
 
