@@ -238,7 +238,7 @@
                     <a href="#get-a-specific-registrant" class="toc-h2 toc-link" data-title="Get a Specific Registrant">Get a Specific Registrant</a>
                   </li>
                   <li>
-                    <a href="#create-a-new-registrant" class="toc-h2 toc-link" data-title="Create a new registrant">Create a new registrant</a>
+                    <a href="#create-a-new-registrant-route-disabled-5-3-19" class="toc-h2 toc-link" data-title="Create a new registrant (Route Disabled 5/3/19)">Create a new registrant (<strong>Route Disabled 5/3/19</strong>)</a>
                   </li>
                   <li>
                     <a href="#update-an-already-existing-registrant" class="toc-h2 toc-link" data-title="Update an already existing registrant">Update an already existing registrant</a>
@@ -391,7 +391,7 @@
 <td style="text-align: left"></td>
 </tr>
 </tbody></table>
-<h2 id='get-all-registrations'>Get All Registrations</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/event/&lt;EVENT_CODE&gt;?since_datetime='2018-12-19 01:22:42'"</span> 
+<h2 id='get-all-registrations'>Get All Registrations</h2><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"http://api.eventbeyond.com/validar/registrations/event/&lt;EVENT_CODE&gt;?since_datetime='2018-12-19 01:22:42'"</span>
   -H <span class="s1">'Authorization: Token token="&lt;TOKEN&gt;"'</span>
   -H <span class="s1">'X_API_TENANT: evantaconnect'</span>
   -H <span class="s1">'Accept: application/json, text/javascript, /; q=0.01'</span>
@@ -420,6 +420,7 @@
       </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019 All Hands Executive Summit"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bugs"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bunny"</span><span class="p">,</span><span class="w">
@@ -439,6 +440,7 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789101</span><span class="p">,</span><span class="w">
       </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019 All Hands Executive Summit"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sponsor"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
@@ -497,6 +499,7 @@
   </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">789101</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019 All Hands Executive Summit"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daffy"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="p">,</span><span class="w">
@@ -526,7 +529,7 @@
 <aside class="warning">Error Response</aside>
 
 <p>A failed <code>GET</code> will return a status of <code>404 Not Found</code>. No additional message is given.</p>
-<h2 id='create-a-new-registrant'>Create a new registrant</h2><pre class="highlight shell tab-shell"><code>  curl -X POST
+<h2 id='create-a-new-registrant-route-disabled-5-3-19'>Create a new registrant (<strong>Route Disabled 5/3/19</strong>)</h2><pre class="highlight shell tab-shell"><code>  curl -X POST
   -d <span class="s1">'{ "registration": {
           "event_code": "19ALLEVAES02",
           "attendee_type": "Attendee",
@@ -555,6 +558,7 @@
   </span><span class="s2">"registration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8314101</span><span class="p">,</span><span class="w">
     </span><span class="s2">"event_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19ALLEVAES02"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019 All Hands Executive Summit"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attendee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attendee"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elmer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fudd"</span><span class="p">,</span><span class="w">
@@ -573,7 +577,9 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>To create a registrant hit this end point:</p>
+<p>To create a registrant use this end point: (<strong>Route Disabled 5/3/19</strong>)</p>
+
+<p>Note: this route was not needed for our Validar implementation so it has been disabled in the API. If it should be needed in the future we can easily re-enable it. The documentation has been left here as reference.</p>
 
 <p><code>POST /validar/registrations</code></p>
 
