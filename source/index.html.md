@@ -201,7 +201,7 @@ A successful `GET` will return a status `200 OK` with one registrant.
 
 A failed `GET` will return a status of `404 Not Found`. No additional message is given.
 
-## Create a new registrant
+## Create a new registrant (**Route Disabled 5/3/19**)
 
 ```shell
   curl -X POST
@@ -255,6 +255,8 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
 ```
 
 To create a registrant use this end point: (**Route Disabled 5/3/19**)
+
+Note: this route was not needed for our Validar implementation so it has been disabled in the API. If it should be needed in the future we can easily re-enable it. The documentation has been left here as reference.
 
 `POST /validar/registrations`
 
