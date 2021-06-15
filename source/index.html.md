@@ -22,7 +22,7 @@ The information contained here will help you get started, and the menu on the le
 > To authorize, use this code:
 
 ```shell
-curl 'https://api.eventbeyond.com/validar/registrations/event/<EVENT_CODE>' -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
+curl 'https://eventbeyondapi.emt.aws.gartner.com/validar/registrations/event/<EVENT_CODE>' -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 
 First things first, you must have permission to access to the public API, and that permission is granted through your Validar Admin Role.
@@ -62,7 +62,7 @@ Attribute | Type | Required | Notes
 ## Get All Registrations
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'"
+  curl "http://eventbeyondapi.emt.aws.gartner.com/validar/registrations/event/<EVENT_CODE>?since_datetime='2018-12-19 01:22:42'"
   -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
   -H 'Accept: application/json, text/javascript, /; q=0.01'
@@ -160,7 +160,7 @@ A failed `GET` will return a status of `422 unprocessable entity` with the follo
 ## Get a Specific Registrant
 
 ```shell
-  curl "http://api.eventbeyond.com/validar/registrations/<REGISTRATION_ID>" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
+  curl "http://eventbeyondapi.emt.aws.gartner.com/validar/registrations/<REGISTRATION_ID>" -H 'Authorization: Token token="<TOKEN>"' -H 'X_API_TENANT: evantaconnect' -H 'Accept: application/json, text/javascript, /; q=0.01' -H 'X_API_EMAIL: validar.api.user@evanta.com'
 ```
 > The above command returns JSON structured like this:
 
@@ -220,7 +220,7 @@ A failed `GET` will return a status of `404 Not Found`. No additional message is
         }
     }'
 
-  "http://api.eventbeyond.com/validar/registrations/789101"
+  "http://eventbeyondapi.emt.aws.gartner.com/validar/registrations/789101"
   -H 'Authorization: Token token="<TOKEN>"'
   -H 'X_API_TENANT: evantaconnect'
   -H 'Accept: application/json, text/javascript, /; q=0.01'
@@ -312,7 +312,7 @@ curl -X PUT
   }
 }'
 
-"http://api.eventbeyond.com/validar/registrations/789101"
+"http://eventbeyondapi.emt.aws.gartner.com/validar/registrations/789101"
 -H 'Authorization: Token token="<TOKEN>"'
 -H 'X_API_TENANT: evantaconnect'
 -H 'Accept: application/json, text/javascript, /; q=0.01'
